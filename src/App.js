@@ -5,7 +5,7 @@ import app from './FirebaseConfig';
 
 function App() {
   return (
-   <div className='App'>Firabase course</div>
+   <div className='App'>Firabase courses</div>
   );
 }
 
