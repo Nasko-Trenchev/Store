@@ -7,7 +7,8 @@ export const Auth = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    console.log(auth?.currentUser?.email)
+    console.log(auth?.currentUser?.email);
+
     const signIn = async () => {
         try {
             await createUserWithEmailAndPassword(auth, email, password);
@@ -40,7 +41,6 @@ export const Auth = () => {
             <button onClick={signIn}>Sign in</button>
             <button onClick={signInWithGoogle}>Sign in with Google</button>
             <button onClick={Logout}>Logout</button>
-
         </div>
     )
 }
