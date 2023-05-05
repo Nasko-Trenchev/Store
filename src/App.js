@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-import app from './FirebaseConfig';
+import app from './config/Firebase';
 
 function App() {
   return (
