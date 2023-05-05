@@ -1,11 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 
-import app from './config/Firebase';
+import { Auth } from './components/Auth';
 
 function App() {
   return (
-   <div className='App'>Firabase courses</div>
+    <div className='App'>
+      <Auth />
+    </div>
   );
 }
 

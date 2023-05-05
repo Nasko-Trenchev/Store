@@ -1,20 +1,26 @@
 
 import { initializeApp } from "firebase/app";
+import { getAuth } from 'firebase/auth';
+
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyBT20pkOzDxqEPROeb28kqICRbRWOMumkw",
+  apiKey: "AIzaSyDnNii-lE7hTwheGOzIcPTx4x5j9Dsh2gc",
 
-  authDomain: "learningfirabase.firebaseapp.com",
+  authDomain: "learningfirabasepedrotech.firebaseapp.com",
 
-  projectId: "learningfirabase",
+  projectId: "learningfirabasepedrotech",
 
-  storageBucket: "learningfirabase.appspot.com",
+  storageBucket: "learningfirabasepedrotech.appspot.com",
 
-  messagingSenderId: "718707276834",
+  messagingSenderId: "1084739884382",
 
-  appId: "1:718707276834:web:589fec05a6dfb52e775e7b"
+  appId: "1:1084739884382:web:06b761d1eac2365350ebcf"
 
 };
 
-export const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
