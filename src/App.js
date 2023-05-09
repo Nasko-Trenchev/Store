@@ -11,7 +11,9 @@ import { ref, uploadBytes } from 'firebase/storage';
 import { AuthContextProvider } from './contexts/UserContext';
 import { HomePage } from './components/HomePage/HomePage';
 import { Catalog } from './components/Catalog/Catalog';
+import { NavigationHeader } from './components/NavigationHeader/NavigationHeader'
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
+import { Logout } from './components/Logout/Logout';
 
 function App() {
 
@@ -94,10 +96,12 @@ function App() {
 
   return (
     <AuthContextProvider>
+      <NavigationHeader />
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path='/catalog' element={<ProtectedRoute><Catalog /></ProtectedRoute>} />
       </Routes>
     </AuthContextProvider>
