@@ -1,20 +1,28 @@
 import { useState } from 'react';
 import { auth, GoogleProvider } from '../../config/Firebase';
-import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { UserAuth } from '../../contexts/UserContext'
+import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 
 import styles from './Login.module.css'
 
 
 export const Login = () => {
 
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     console.log(auth?.currentUser?.email);
+    const navigate = useNavigate();
+    const { loginUser } = UserAuth();
 
-    const signIn = async () => {
+    const signIn = async (e) => {
+        e.preventDefault();
         try {
-            await createUserWithEmailAndPassword(auth, email, password);
+            console.log(email, password)
+            await loginUser(email, password);
+            navigate('/');
+            // await signInWithEmailAndPassword(auth, email, password);
         } catch (error) {
             console.log(error);
         }
@@ -45,14 +53,14 @@ export const Login = () => {
         //     <button onClick={Logout}>Logout</button>
         // </div>
         <div className={styles["container"]}>
-            <form className={styles["login-form"]} action="login.php">
+            <form className={styles["login-form"]} onSubmit={signIn}>
                 <h2>Login</h2>
                 <label htmlFor="username">Email:</label>
-                <input type="text" id="username" name="username" required />
+                <input type="text" id="username" name="username" onChange={(e) => setEmail(e.target.value)} />
                 <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" required />
+                <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
                 <button type="submit">Login</button>
-                <button type="submit" onClick={signInWithGoogle}>Login in with Google</button>
+                {/* <button type="submit" onClick={signInWithGoogle}>Login in with Google</button> */}
             </form>
         </div>
     )

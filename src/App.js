@@ -8,6 +8,10 @@ import { Login } from './components/Login/Login';
 import { useEffect, useState } from 'react';
 import { getDocs, collection, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { ref, uploadBytes } from 'firebase/storage';
+import { AuthContextProvider } from './contexts/UserContext';
+import { HomePage } from './components/HomePage/HomePage';
+import { Catalog } from './components/Catalog/Catalog';
+import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 
 function App() {
 
@@ -89,10 +93,14 @@ function App() {
 
 
   return (
-    <Routes>
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <AuthContextProvider>
+      <Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path='/catalog' element={<ProtectedRoute><Catalog /></ProtectedRoute>} />
+      </Routes>
+    </AuthContextProvider>
     // <div className='App'>
     //   <Register />
 
