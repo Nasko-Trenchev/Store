@@ -1,7 +1,10 @@
 import './App.css';
 
+import { Routes, Route } from "react-router-dom";
+
 import { db, auth, storage } from './config/Firebase'
-import { Auth } from './components/Auth';
+import { Register } from './components/Register/Register';
+import { Login } from './components/Login/Login';
 import { useEffect, useState } from 'react';
 import { getDocs, collection, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { ref, uploadBytes } from 'firebase/storage';
@@ -86,34 +89,38 @@ function App() {
 
 
   return (
-    <div className='App'>
-      <Auth />
+    <Routes>
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+    // <div className='App'>
+    //   <Register />
 
-      <div>
-        <input placeholder='Movie title...' onChange={(e) => setNewMovieTitle(e.target.value)} />
-        <input placeholder='Release date...' type='number' onChange={(e) => setNewReleaseDate(Number(e.target.value))} />
-        <input type='checkbox'
-          checked={isNewMovieOscar}
-          onChange={(e) => setIsNewMovieOscar(e.target.checked)} />
-        <label>Received an Oscar</label>
-        <button onClick={onSubmitMovie}>Submit movie</button>
-      </div>
-      <div>
-        {movieList.map((movie) => (
-          <div key={movie.id}>
-            <h1 style={{ color: movie.receivedAnOscar ? 'green' : 'gray' }}>{movie.title}</h1>
-            <p>Date: {movie.releaseDate}</p>
-            <button onClick={() => deleteMovie(movie.id)}>Delete Movie</button>
-            <input placeholder='New Title' onChange={(e) => setUpdatedTitle(e.target.value)}></input>
-            <button onClick={() => updateMovieTitle(movie.id)}>Change title</button>
-          </div>
-        ))}
-      </div>
-      <div>
-        <input type="file" onChange={(e) => setFileUpload(e.target.files[0])} />
-        <button onClick={uploadFile}>Upload file</button>
-      </div>
-    </div>
+    //   <div>
+    //     <input placeholder='Movie title...' onChange={(e) => setNewMovieTitle(e.target.value)} />
+    //     <input placeholder='Release date...' type='number' onChange={(e) => setNewReleaseDate(Number(e.target.value))} />
+    //     <input type='checkbox'
+    //       checked={isNewMovieOscar}
+    //       onChange={(e) => setIsNewMovieOscar(e.target.checked)} />
+    //     <label>Received an Oscar</label>
+    //     <button onClick={onSubmitMovie}>Submit movie</button>
+    //   </div>
+    //   <div>
+    //     {movieList.map((movie) => (
+    //       <div key={movie.id}>
+    //         <h1 style={{ color: movie.receivedAnOscar ? 'green' : 'gray' }}>{movie.title}</h1>
+    //         <p>Date: {movie.releaseDate}</p>
+    //         <button onClick={() => deleteMovie(movie.id)}>Delete Movie</button>
+    //         <input placeholder='New Title' onChange={(e) => setUpdatedTitle(e.target.value)}></input>
+    //         <button onClick={() => updateMovieTitle(movie.id)}>Change title</button>
+    //       </div>
+    //     ))}
+    //   </div>
+    //   <div>
+    //     <input type="file" onChange={(e) => setFileUpload(e.target.files[0])} />
+    //     <button onClick={uploadFile}>Upload file</button>
+    //   </div>
+    // </div>
   );
 }
 
