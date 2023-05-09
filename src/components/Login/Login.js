@@ -14,15 +14,13 @@ export const Login = () => {
 
     console.log(auth?.currentUser?.email);
     const navigate = useNavigate();
-    const { loginUser } = UserAuth();
+    const { loginUser , signUpWithGoogle} = UserAuth();
 
     const signIn = async (e) => {
         e.preventDefault();
         try {
-            console.log(email, password)
             await loginUser(email, password);
             navigate('/');
-            // await signInWithEmailAndPassword(auth, email, password);
         } catch (error) {
             console.log(error);
         }
@@ -30,16 +28,7 @@ export const Login = () => {
 
     const signInWithGoogle = async () => {
         try {
-            await signInWithPopup(auth, GoogleProvider)
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    const Logout = async () => {
-
-        try {
-            await signOut(auth)
+            await signUpWithGoogle()
         } catch (error) {
             console.log(error);
         }
@@ -60,7 +49,7 @@ export const Login = () => {
                 <label htmlFor="password">Password:</label>
                 <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
                 <button type="submit">Login</button>
-                {/* <button type="submit" onClick={signInWithGoogle}>Login in with Google</button> */}
+                <button type="submit" onClick={signInWithGoogle}>Login in with Google</button>
             </form>
         </div>
     )
