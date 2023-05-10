@@ -2,24 +2,29 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { auth, GoogleProvider } from '../../config/Firebase';
 import { UserAuth } from '../../contexts/UserContext';
-import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 
 import styles from './Register.module.css'
 
 
 export const Register = () => {
 
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setconfirmPassword] = useState('');
 
     const { createUser } = UserAuth();
     const navigate = useNavigate();
     console.log(auth?.currentUser?.email);
     const onHandlerSubmit = async (e) => {
         e.preventDefault();
+
+        if (confirmPassword !== password) {
+            console.log("Wrong password!")
+            return;
+        }
         try {
             // await createUserWithEmailAndPassword(auth, email, password);
-            console.log(email, password)
             await createUser(email, password);
             navigate('/');
         } catch (error) {
@@ -35,14 +40,6 @@ export const Register = () => {
         }
     }
 
-    const Logout = async () => {
-
-        try {
-            await signOut(auth)
-        } catch (error) {
-            console.log(error);
-        }
-    }
     return (
         // <div>
         //     <input placeholder="Email..." onChange={(e) => setEmail(e.target.value)} />
@@ -59,7 +56,7 @@ export const Register = () => {
                 <label htmlFor="new-password">New Password:</label>
                 <input type="password" id="new-password" name="new-password" onChange={(e) => setPassword(e.target.value)} />
                 <label htmlFor="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" />
+                <input type="password" id="confirm-password" name="confirm-password" onChange={(e) => setconfirmPassword(e.target.value)} />
                 <button type="submit">Register</button>
             </form>
         </div>
