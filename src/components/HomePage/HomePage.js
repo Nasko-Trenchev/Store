@@ -30,7 +30,7 @@ export const HomePage = () => {
         await addDoc(picturesCollectionRef, {
             title: name,
             imageUrl: imageUrl,
-            id: auth?.currentUser?.uid
+            userId: auth?.currentUser?.uid
         })
         getPictures()
     }
