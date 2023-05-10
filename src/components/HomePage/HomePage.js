@@ -2,7 +2,7 @@ import styles from './HomePage.module.css';
 
 import { useEffect, useState } from 'react';
 import { db, auth } from '../../config/Firebase';
-import { getDocs, collection, addDoc, deleteDoc, doc } from '@firebase/firestore';
+import { getDocs, collection, addDoc, deleteDoc, doc, updateDoc } from '@firebase/firestore';
 
 export const HomePage = () => {
 
@@ -10,6 +10,8 @@ export const HomePage = () => {
 
     const [imageUrl, setImageUrl] = useState('');
     const [name, setName] = useState('');
+
+    const [updatedName, setUpdatedName] = useState('');
 
     const getPictures = async () => {
         const data = await getDocs(picturesCollectionRef);
@@ -30,11 +32,19 @@ export const HomePage = () => {
             imageUrl: imageUrl,
             id: auth?.currentUser?.uid
         })
+        getPictures()
     }
 
     const deletePicture = async (id) => {
         const picture = doc(db, "Pictures", id)
         await deleteDoc(picture)
+        getPictures()
+    }
+
+    const updatePicture = async (id) => {
+        const picture = doc(db, "Pictures", id)
+        await updateDoc(picture, { title: updatedName })
+        getPictures()
     }
 
     return (
@@ -61,6 +71,9 @@ export const HomePage = () => {
                             <img src={picture.imageUrl} alt="Product 1" />
                             <h3>{picture.title}</h3>
                             <button onClick={() => deletePicture(picture.id)}>Delete</button>
+                            <label htmlFor="">Update Name</label>
+                            <input type="text" onChange={(e) => setUpdatedName(e.target.value)} />
+                            <button onClick={() => updatePicture(picture.id)}>Change name</button>
                         </div>
                     ))}
                 </div>
