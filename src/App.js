@@ -3,17 +3,18 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 
 import { db, auth, storage } from './config/Firebase'
-import { Register } from './components/Register/Register';
-import { Login } from './components/Login/Login';
 import { useEffect, useState } from 'react';
 import { getDocs, collection, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { ref, uploadBytes } from 'firebase/storage';
 import { AuthContextProvider } from './contexts/UserContext';
+
 import { HomePage } from './components/HomePage/HomePage';
 import { Catalog } from './components/Catalog/Catalog';
 import { NavigationHeader } from './components/NavigationHeader/NavigationHeader'
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 import { Logout } from './components/Logout/Logout';
+import { Register } from './components/Register/Register';
+import { Login } from './components/Login/Login';
 
 function App() {
 
@@ -41,13 +42,11 @@ function App() {
       const data = await getDocs(moviesCollection);
       const filteredData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       setMovielist(filteredData);
-      console.log(filteredData);
     } catch (error) {
       console.log(error);
     }
   }
   useEffect(() => {
-
     getMovieList();
   }, []);
 

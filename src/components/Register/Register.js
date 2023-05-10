@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { auth, GoogleProvider } from '../../config/Firebase';
 import { UserAuth } from '../../contexts/UserContext';
-import {signInWithPopup } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 
 import styles from './Register.module.css'
 
@@ -19,7 +19,7 @@ export const Register = () => {
     const onHandlerSubmit = async (e) => {
         e.preventDefault();
 
-        if(confirmPassword != password){
+        if (confirmPassword !== password) {
             console.log("Wrong password!")
             return;
         }
@@ -56,7 +56,7 @@ export const Register = () => {
                 <label htmlFor="new-password">New Password:</label>
                 <input type="password" id="new-password" name="new-password" onChange={(e) => setPassword(e.target.value)} />
                 <label htmlFor="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" onChange={(e) => setconfirmPassword(e.target.value)}/>
+                <input type="password" id="confirm-password" name="confirm-password" onChange={(e) => setconfirmPassword(e.target.value)} />
                 <button type="submit">Register</button>
             </form>
         </div>
