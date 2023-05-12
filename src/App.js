@@ -15,6 +15,8 @@ import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 import { Logout } from './components/Logout/Logout';
 import { Register } from './components/Register/Register';
 import { Login } from './components/Login/Login';
+import { AlertProvider } from './contexts/AlertContext';
+import Alert from './components/Alert/Alert';
 
 function App() {
 
@@ -95,14 +97,17 @@ function App() {
 
   return (
     <AuthContextProvider>
-      <NavigationHeader />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path='/catalog' element={<ProtectedRoute><Catalog /></ProtectedRoute>} />
-      </Routes>
+      <AlertProvider>
+        <Alert />
+        <NavigationHeader />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path='/catalog' element={<ProtectedRoute><Catalog /></ProtectedRoute>} />
+        </Routes>
+      </AlertProvider>
     </AuthContextProvider>
     // <div className='App'>
     //   <Register />
