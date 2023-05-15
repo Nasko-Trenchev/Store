@@ -12,6 +12,8 @@ export const NavigationHeader = () => {
             <nav>
                 <ul>
                     <li><NavLink to="/">Home</NavLink></li>
+                    <input type="search" placeholder="Search for your product..." />
+                    <button className={styles["button-32"]}>Search</button>
                     {user ? <>
                         <li><NavLink to="/catalog">Catalog</NavLink></li>
                         <i>Hello {user.email}</i>
@@ -21,8 +23,19 @@ export const NavigationHeader = () => {
                             <li><NavLink to="/register">Register</NavLink></li>
                             <li><NavLink to="/login">Login</NavLink></li>
                         </>}
+                        <li><NavLink to="/">Cart</NavLink></li>
+
                 </ul>
             </nav>
+            {/* <nav className={styles["categories"]}>
+                <ul>
+                <li><NavLink to="/">Electronics</NavLink></li>
+                <li><NavLink to="/">Clothes</NavLink></li>
+                <li><NavLink to="/">Toys</NavLink></li>
+                <li><NavLink to="/">Books</NavLink></li>
+                <li><NavLink to="/">New listings</NavLink></li>
+                </ul>
+            </nav> */}
         </header>
 
     )

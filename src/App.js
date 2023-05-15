@@ -11,7 +11,7 @@ import { AuthContextProvider } from './contexts/UserContext';
 import { HomePage } from './components/HomePage/HomePage';
 import { Catalog } from './components/Catalog/Catalog';
 import { NavigationHeader } from './components/NavigationHeader/NavigationHeader'
-import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
+import { ProtectedRoute } from './components/Common/ProtectedRoute';
 import { Logout } from './components/Logout/Logout';
 import { Register } from './components/Register/Register';
 import { Login } from './components/Login/Login';

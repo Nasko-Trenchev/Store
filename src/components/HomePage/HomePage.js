@@ -49,7 +49,11 @@ export const HomePage = () => {
 
     return (
         <main>
-            <div className={styles["divPadding"]}>
+            <h1 className={styles["heading"]}>Welcome to Pizza palace</h1>
+            
+            <h1 className={styles["heading"]}>Welcome to Pizza palace</h1>
+
+            {/* <div className={styles["divPadding"]}>
                 <label htmlFor="">Image Url</label>
                 <input type="text" onChange={(e) => setImageUrl(e.target.value)} />
                 <label htmlFor="">Picture Name</label>
@@ -77,7 +81,7 @@ export const HomePage = () => {
                         </div>
                     ))}
                 </div>
-            </section>
+            </section> */}
         </main>
     )
 }

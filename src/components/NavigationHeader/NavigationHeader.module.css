@@ -1,3 +1,9 @@
+/* * {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}  */
+
 .header {
     background-color: #222;
     position: fixed;
@@ -5,6 +11,9 @@
     top: 0;
     left: 0;
     z-index: 999;
+  }
+  nav {
+    padding: 12px;
   }
   
   nav ul {
@@ -14,18 +23,23 @@
     text-align: center;
   }
   
-  nav li {
+  nav li  {
     display: inline-block;
-    margin: 0 10px;
-  }
-  
-  nav li a {
-    display: block;
     color: #fff;
+    margin: 0 10px;
     text-decoration: none;
     font-size: 1.2rem;
     padding: 10px;
     transition: all 0.3s ease;
+  }
+
+  nav li a {
+    display: block;
+    color: #faf7f7;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    transition: all 0.3s ease;    
   }
   
   nav li a:hover {
@@ -33,4 +47,41 @@
     color: #fff;
     border-radius: 5px;
   }
+
+  nav input {
+    width: 650px;
+    font-size: 16px;
+  }
+
+  .categories {
+    background-color: rgb(14, 14, 103);
+    margin: 0px;
+    padding-bottom: 0px;
+  }
   
+
+/* CSS */
+.button-32 {
+  background-color: #ffee00fb;
+  color: #000;
+  cursor: pointer;
+  transition: 200ms;
+  box-sizing: border-box;
+  font-size: 17px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-32:not(:disabled):hover,
+.button-32:not(:disabled):focus {
+  outline: 0;
+  background: #f4e603;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+}
+
+.button-32:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}
