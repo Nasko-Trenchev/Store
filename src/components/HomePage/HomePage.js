@@ -48,12 +48,10 @@ export const HomePage = () => {
     }
 
     return (
-        <main>
+        <main className={styles[".mainPageContainer"]}>
             <h1 className={styles["heading"]}>Welcome to Pizza palace</h1>
             
-            <h1 className={styles["heading"]}>Welcome to Pizza palace</h1>
-
-            {/* <div className={styles["divPadding"]}>
+            <div className={styles["divPadding"]}>
                 <label htmlFor="">Image Url</label>
                 <input type="text" onChange={(e) => setImageUrl(e.target.value)} />
                 <label htmlFor="">Picture Name</label>
@@ -62,7 +60,6 @@ export const HomePage = () => {
             </div>
             <section className={styles["hero"]}>
                 <div className={styles["hero-text"]}>
-                    <h1>Welcome to Our Online Store</h1>
                     <p>Discover the latest trends and shop for your favorite products from the comfort of your home.</p>
                     <a href="#" className={styles["btn"]}>Shop Now</a>
                 </div>
@@ -81,7 +78,7 @@ export const HomePage = () => {
                         </div>
                     ))}
                 </div>
-            </section> */}
+            </section>
         </main>
     )
 }

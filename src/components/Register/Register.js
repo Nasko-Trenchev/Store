@@ -48,7 +48,7 @@ export const Register = () => {
         //     <button onClick={signInWithGoogle}>Sign in with Google</button>
         //     <button onClick={Logout}>Logout</button>
         // </div>
-        <div className={styles["container"]}>
+        <div className={styles["register-container"]}>
             <form className={styles["register-form"]} onSubmit={onHandlerSubmit}>
                 <h2>Register</h2>
                 <label htmlFor="new-username">New Email:</label>
@@ -57,7 +57,7 @@ export const Register = () => {
                 <input type="password" id="new-password" name="new-password" onChange={(e) => setPassword(e.target.value)} />
                 <label htmlFor="confirm-password">Confirm Password:</label>
                 <input type="password" id="confirm-password" name="confirm-password" onChange={(e) => setconfirmPassword(e.target.value)} />
-                <button type="submit">Register</button>
+                <button className={styles["registerButton"]} type="submit">Register</button>
             </form>
         </div>
     )

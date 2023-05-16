@@ -1,9 +1,47 @@
-/* h1 {
-    padding-top: 100px;
-} */
+* {
+    box-sizing: content-box;
+    padding: 0;
+    margin: 0;
+}
 
-/* div {
+.catalogContainer {
+    display: flex;
+}
+
+.catalog-h1 {
+    grid-row: 1/3;
+    grid-column: 1/5;
+    padding-top: 100px;
+}
+
+.picture {
     display: inline-block;
     border-color: black;
     border-width: 2px;
-} */
+}
+
+.picture img {
+    width: 200px;
+    height: 200px;
+}
+.pizzaSubmitForm {
+    margin-left: 10px;
+}
+
+.pizzaSubmitForm label {
+    margin: 5px;
+    display: block;
+}
+
+.pizzaSubmitForm input {
+    display: inline-block;
+}
+
+.pizzaSubmitForm input[type="checkbox"] {
+    display: inline-block;
+}
+
+.pizzaSubmitForm button {
+    margin-top: 5px;
+    display: block;
+}

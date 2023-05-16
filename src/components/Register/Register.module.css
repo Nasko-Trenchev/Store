@@ -1,4 +1,4 @@
-.container {
+.register-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,18 +17,13 @@
     margin-right: 20px;
 }
 
-h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-label {
+.register-form label {
     display: block;
     margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="password"] {
+.register-form input[type="text"],
+.register-form input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -36,7 +31,7 @@ input[type="password"] {
     border-radius: 3px;
 }
 
-button[type="submit"] {
+.register-form button[type="submit"] {
     background-color: #4CAF50;
     color: white;
     padding: 10px;
@@ -45,6 +40,6 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.register-form button[type="submit"]:hover {
     background-color: #45a049;
 }

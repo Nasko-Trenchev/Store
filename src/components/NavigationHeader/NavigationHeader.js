@@ -8,8 +8,8 @@ export const NavigationHeader = () => {
     const { user } = UserAuth();
 
     return (
-        <header className={styles["header"]}>
-            <nav>
+        <header className={styles["navHeader"]}>
+            <nav className={styles["navigationHeader"]}>
                 <ul>
                     <li><NavLink to="/">Home</NavLink></li>
                     <input type="search" placeholder="Search for your product..." />
@@ -27,15 +27,6 @@ export const NavigationHeader = () => {
 
                 </ul>
             </nav>
-            {/* <nav className={styles["categories"]}>
-                <ul>
-                <li><NavLink to="/">Electronics</NavLink></li>
-                <li><NavLink to="/">Clothes</NavLink></li>
-                <li><NavLink to="/">Toys</NavLink></li>
-                <li><NavLink to="/">Books</NavLink></li>
-                <li><NavLink to="/">New listings</NavLink></li>
-                </ul>
-            </nav> */}
         </header>
 
     )
